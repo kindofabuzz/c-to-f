@@ -21,7 +21,7 @@ func main() {
 		// 2. Parse the string into a float64 (temp variable)
 		val, err := strconv.ParseFloat(input, 32)
 		if err != nil {
-			fmt.Println("Error: Try with numbers, friend!")
+			fmt.Println("Error: Try with numbers, dummy!")
 			continue
 		}
 
