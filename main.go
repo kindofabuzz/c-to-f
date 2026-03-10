@@ -9,13 +9,13 @@ import (
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin) // Move this outside the loop!
+	reader := bufio.NewReader(os.Stdin)
 
 	for {
 		fmt.Print("Enter Celsius: ")
 
 		// 1. Read the input as a string
-		input, _ := reader.ReadString('\n') // Note the '\n' with a backslash!
+		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
 		// 2. Parse the string into a float64 (temp variable)
@@ -25,7 +25,7 @@ func main() {
 			continue
 		}
 
-		// 3. Convert that float64 to float32 for your 'brains' function
+		// Convert that float64 to float32
 		celsius := float32(val)
 		f := brains(celsius)
 
@@ -34,8 +34,8 @@ func main() {
 	}
 }
 
-func brains(celsius float32) (answer float32) {
+func brains(celsius float32) float32 {
 	// var answer float32
-	answer = (celsius * 9 / 5) + 32
-	return
+	answer := (celsius * 9 / 5) + 32
+	return answer
 }
