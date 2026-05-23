@@ -8,19 +8,28 @@ import (
 	"strings"
 )
 
-
-
 func main() {
 	reader := bufio.NewReader(os.Stdin)
+
+	if len(os.Args) > 1 {
+		val, err := strconv.ParseFloat(os.Args[1], 32)
+		if err != nil {
+			fmt.Println("Try with numbers dumbass!")
+			os.Exit(1)
+		}
+		result := brains(float32(val))
+		fmt.Printf("Fahrenheit: %.1f\n", result)
+		os.Exit(0)
+	}
 
 	for {
 		fmt.Print("Enter Celsius: ")
 
-		// 1. Read the input as a string
+		// Read the input as a string
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
-		// 2. Parse the string into a float64 (temp variable)
+		// Parse the string into a float64 (temp variable)
 		val, err := strconv.ParseFloat(input, 32)
 		if err != nil {
 			fmt.Println("Error: Try with numbers, dummy!")
@@ -32,7 +41,7 @@ func main() {
 		f := brains(celsius)
 
 		fmt.Printf("Fahrenheit: %.1f\n", f)
-		break // Exit after one successful conversion
+		os.Exit(0) // Exit after one successful conversion
 	}
 }
 
