@@ -36,12 +36,12 @@ func main() {
 			continue
 		}
 
-		// Convert that float64 to float32
+		// Convert
 		celsius := float32(val)
 		f := brains(celsius)
 
 		fmt.Printf("Fahrenheit: %.1f\n", f)
-		os.Exit(0) // Exit after one successful conversion
+		os.Exit(0)
 	}
 }
 
